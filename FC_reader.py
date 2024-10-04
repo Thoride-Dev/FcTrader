@@ -12,6 +12,8 @@ with open('api_keys.txt', 'r') as f:
 openai_key = api_keys[3]
 client = OpenAI(api_key=openai_key)
 
+image_url = input("Enter the URL of the image: ")
+
 response = client.chat.completions.create(
   model="gpt-4o-mini",
   messages=[
@@ -21,7 +23,7 @@ response = client.chat.completions.create(
         {
           "type": "image_url",
           "image_url": {
-            "url": "https://i.gyazo.com/57650d83981cbfc7d0a06851e0c412f8.png"
+            "url": image_url
             }
         },
         {
